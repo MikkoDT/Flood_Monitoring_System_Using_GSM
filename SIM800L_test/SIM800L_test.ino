@@ -5,7 +5,7 @@
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(10,11);
+SoftwareSerial mySerial(0,1);
 int timeout;
 void setup(){
   Serial.begin(9600); 
@@ -37,14 +37,14 @@ void loop(){
 }
 
 String readSerial(){
-  //delay(100);
+  delay(100);
   if (mySerial.available()) {
     return mySerial.readString();
   }
 }
 
 void CallNumber() {
-  mySerial.println("ATD+ +9568517289;");   //Mobile phone number to call
+  mySerial.println("ATD+ +639568517289;");   //Mobile phone number to call
   Serial.println(readSerial());
   delay(20000); 
   mySerial.println("ATH"); 
@@ -54,7 +54,7 @@ void CallNumber() {
 void SendMessage(){
   mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
   Serial.println(readSerial());
-  mySerial.println("AT+CMGS=\"+9568517289\"");    //Mobile phone number to send message
+  mySerial.println("AT+CMGS=\"+639568517289\"");    //Mobile phone number to send message
   Serial.println(readSerial());
   mySerial.println("Hi, This Test Msg From SIM800");
   mySerial.println((char)26);
@@ -65,6 +65,6 @@ void RecieveMessage(){
   Serial.println ("SIM800  Read an SMS");
   mySerial.println("AT+CMGF=1");    // AT Command to receive a live SMS
   Serial.println(readSerial());
-  mySerial.println("AT+CNMI=2,1,0,0,0"); 
+  mySerial.println("AT+CNMI=1,2,0,0,0"); 
   Serial.println(readSerial());
 }
