@@ -51,13 +51,14 @@ void loop()
     digitalWrite(redled, HIGH);
     tone(BUZZER, 300);
     digitalWrite(grnled, LOW);
-    delay(1500);
-    noTone(BUZZER);
+    //delay(1500);
+    
   }
   else
   {
     digitalWrite(grnled, HIGH);
     digitalWrite(redled, LOW);
+    noTone(BUZZER);
   }
   currentMillis = millis();
   if (currentMillis - startMillis >= period)
