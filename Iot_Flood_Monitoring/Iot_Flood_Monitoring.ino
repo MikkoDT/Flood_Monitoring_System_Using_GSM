@@ -58,6 +58,7 @@ void loop()
   {
     digitalWrite(grnled, HIGH);
     digitalWrite(redled, LOW);
+    delay(1500);
     noTone(BUZZER);
   }
   currentMillis = millis();
