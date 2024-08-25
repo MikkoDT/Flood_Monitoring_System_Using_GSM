@@ -48,16 +48,16 @@ void loop()
   Serial.println(distance1);
   if (distance1 <= 4)
   {
-    digitalWrite(D3, HIGH);
+    digitalWrite(redled, HIGH);
     tone(BUZZER, 300);
-    digitalWrite(D4, LOW);
+    digitalWrite(grnled, LOW);
     delay(1500);
     noTone(BUZZER);
   }
   else
   {
-    digitalWrite(D4, HIGH);
-    digitalWrite(D3, LOW);
+    digitalWrite(grnled, HIGH);
+    digitalWrite(redled, LOW);
   }
   currentMillis = millis();
   if (currentMillis - startMillis >= period)
