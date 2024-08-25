@@ -5,11 +5,11 @@ const int echoPin1 = D2;
 #define redled D3
 #define grnled D4
 #define BUZZER D5 //buzzer pin
-unsigned long ch_no = 1053193;//Replace with Thingspeak Channel number
-const char * write_api = "1WGTOHK9622G57JI";//Replace with Thingspeak write API
-char auth[] = "mwa0000018384149";
-char ssid[] = "Alsan Air WiFi 4";
-char pass[] = "11122235122@kap1";
+unsigned long ch_no = 2635824;//Replace with Thingspeak Channel number
+const char * write_api = "0OUAQV0GC6K9S3NS";//Replace with Thingspeak write API
+char auth[] = "mwa0000018819725";
+char ssid[] = "Mikko";
+char pass[] = "00CartesianManipulator#";
 unsigned long startMillis;
 unsigned long currentMillis;
 const unsigned long period = 10000;
