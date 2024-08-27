@@ -48,7 +48,7 @@ void loop()
   duration1 = pulseIn(echoPin1, HIGH);
   distance1 = duration1 * 0.034 / 2;
   Serial.println(distance1);
-  if (distance1 <= 4) and
+  if ((distance1 <= 4) || (digitalRead(float_switch) == HIGH))
   {
     digitalWrite(redled, HIGH);
     tone(BUZZER, 300);
