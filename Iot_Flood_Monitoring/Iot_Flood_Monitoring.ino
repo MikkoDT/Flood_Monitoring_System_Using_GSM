@@ -5,6 +5,7 @@ const int echoPin1 = D2;
 #define redled D3
 #define grnled D4
 #define BUZZER D5 //buzzer pin
+#define float_switch D6 
 unsigned long ch_no = 2635824;//Replace with Thingspeak Channel number
 const char * write_api = "0OUAQV0GC6K9S3NS";//Replace with Thingspeak write API
 char auth[] = "mwa0000018819725";
@@ -22,6 +23,7 @@ void setup()
   pinMode(echoPin1, INPUT);
   pinMode(redled, OUTPUT);
   pinMode(grnled, OUTPUT);
+  pinMode(float_switch, INPUT_PULLUP);
   digitalWrite(redled, LOW);
   digitalWrite(grnled, LOW);
   Serial.begin(115200);
@@ -46,7 +48,7 @@ void loop()
   duration1 = pulseIn(echoPin1, HIGH);
   distance1 = duration1 * 0.034 / 2;
   Serial.println(distance1);
-  if (distance1 <= 4)
+  if (distance1 <= 4) and
   {
     digitalWrite(redled, HIGH);
     tone(BUZZER, 300);
