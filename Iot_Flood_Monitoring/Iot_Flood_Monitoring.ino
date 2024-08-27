@@ -5,7 +5,7 @@ const int echoPin1 = D2;
 #define redled D3
 #define grnled D4
 #define BUZZER D5 //buzzer pin
-#define float_switch D6 
+#define float_switch D0 
 unsigned long ch_no = 2635824;//Replace with Thingspeak Channel number
 const char * write_api = "0OUAQV0GC6K9S3NS";//Replace with Thingspeak write API
 char auth[] = "mwa0000018819725";
