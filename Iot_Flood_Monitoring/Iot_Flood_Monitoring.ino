@@ -2,7 +2,7 @@
 #include <ESP8266WiFi.h>
 const int trigPin1 = D1;
 const int echoPin1 = D2;
-#define redled D3
+#define yelled D3 
 #define grnled D4
 #define BUZZER D5 //buzzer pin
 #define float_switch D6 
@@ -21,10 +21,10 @@ void setup()
 {
   pinMode(trigPin1, OUTPUT);
   pinMode(echoPin1, INPUT);
-  pinMode(redled, OUTPUT);
+  pinMode(yelled, OUTPUT);
   pinMode(grnled, OUTPUT);
   pinMode(float_switch, INPUT_PULLUP);
-  digitalWrite(redled, LOW);
+  digitalWrite(yelled, LOW);
   digitalWrite(grnled, LOW);
   Serial.begin(115200);
   WiFi.begin(ssid, pass);
@@ -48,9 +48,11 @@ void loop()
   duration1 = pulseIn(echoPin1, HIGH);
   distance1 = duration1 * 0.034 / 2;
   Serial.println(distance1);
-  if ((distance1 <= 4) || (digitalRead(float_switch) == HIGH))
+
+ if ((distance1 <= 4) || (digitalRead(float_switch) == HIGH))
+//if ((distance1 <= 4) == HIGH)
   {
-    digitalWrite(redled, HIGH);
+    digitalWrite(yelled, HIGH);
     tone(BUZZER, 300);
     digitalWrite(grnled, LOW);
     //delay(1500);
@@ -59,7 +61,7 @@ void loop()
   else
   {
     digitalWrite(grnled, HIGH);
-    digitalWrite(redled, LOW);
+    digitalWrite(yelled, LOW);
     delay(1500);
     noTone(BUZZER);
   }
